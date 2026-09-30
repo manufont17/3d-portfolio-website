@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D & VFX Artist | Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome per le icone -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Model Viewer di Google per la grafica 3D -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar Glassmorphism -->
+    <nav class="navbar">
+        <div class="logo">PORTFOLIO<span>3D/VFX</span></div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#showreel">Showreel</a></li>
+            <li><a href="#viewer-3d">3D Viewer</a></li>
+            <li><a href="#portfolio">Progetti</a></li>
+            <li><a href="#skills">Software</a></li>
+            <li><a href="#contact">Contatti</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="status-badge">
+                <span class="status-dot"></span> Available for Freelance & Full-time
+            </div>
+            <h1>3D & VFX <span>ARTIST</span></h1>
+            <p>Specializzato in Modellazione 3D, Texturing, VFX Compositing e Simulazioni Dinamiche per Cinema e Real-Time Engines.</p>
+            <div class="hero-btns">
+                <a href="#showreel" class="btn primary-btn"><i class="fas fa-play"></i> Guarda lo Showreel</a>
+                <a href="#contact" class="btn secondary-btn">Contattami</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showreel Section -->
+    <section id="showreel" class="section">
+        <h2 class="section-title">VFX & 3D <span>SHOWREEL</span></h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="VFX Showreel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- 3D Interactive Viewer Section -->
+    <section id="viewer-3d" class="section dark-bg">
+        <h2 class="section-title">MODELLO 3D <span>INTERATTIVO</span></h2>
+        <p class="section-subtitle">Ruota, mezza zoom ed esplora il modello direttamente nel browser.</p>
+        
+        <div class="viewer-wrapper">
+            <model-viewer 
+                src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" 
+                alt="Modello 3D Interattivo" 
+                auto-rotate 
+                camera-controls 
+                shadow-intensity="1.5"
+                exposure="1"
+                loading="lazy">
+            </model-viewer>
+        </div>
+    </section>
+
+    <!-- Portfolio Gallery -->
+    <section id="portfolio" class="section">
+        <h2 class="section-title">GALLERIA <span>PROGETTI</span></h2>
+        
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Tutti</button>
+            <button class="filter-btn" data-filter="3d">3D Modeling</button>
+            <button class="filter-btn" data-filter="vfx">VFX & Compositing</button>
+            <button class="filter-btn" data-filter="fx">Simulation & FX</button>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-card" data-category="3d">
+                <div class="card-img" style="background-image: url('https://picsum.photos/600/400?random=1');"></div>
+                <div class="card-info">
+                    <span class="category">3D Modeling</span>
+                    <h3>Sci-Fi Environment Design</h3>
+                    <p>Asset creato in Blender, texturizzato su Substance Painter.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="vfx">
+                <div class="card-img" style="background-image: url('https://picsum.photos/600/400?random=2');"></div>
+                <div class="card-info">
+                    <span class="category">VFX & Compositing</span>
+                    <h3>CGI Integration & Matchmoving</h3>
+                    <p>Integrazione elemento 3D su girato reale effettuata in Nuke.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="fx">
+                <div class="card-img" style="background-image: url('https://picsum.photos/600/400?random=3');"></div>
+                <div class="card-info">
+                    <span class="category">Simulation & FX</span>
+                    <h3>Pyro & Destruction System</h3>
+                    <p>Simulazione di fuoco e fumo procedurale sviluppata in Houdini.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Software & Skills Matrix -->
+    <section id="skills" class="section dark-bg">
+        <h2 class="section-title">SOFTWARE <span>MATRIX</span></h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-cube skill-icon"></i>
+                <h3>Blender</h3>
+                <p>3D Modeling & Layout</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-gamepad skill-icon"></i>
+                <h3>Unreal Engine 5</h3>
+                <p>Real-Time & Lighting</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-film skill-icon"></i>
+                <h3>Nuke</h3>
+                <p>Advanced Compositing</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-fire skill-icon"></i>
+                <h3>Houdini</h3>
+                <p>Procedural FX & Dynamics</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-paint-brush skill-icon"></i>
+                <h3>Substance Painter</h3>
+                <p>PBR Texturing</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-magic skill-icon"></i>
+                <h3>ZBrush</h3>
+                <p>Digital Sculpting</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <section id="contact" class="section">
+        <h2 class="section-title">CONTATTAMI <span>ORA</span></h2>
+        <div class="contact-container">
+            <form id="contact-form" class="contact-form">
+                <input type="text" placeholder="Il tuo Nome" required>
+                <input type="email" placeholder="La tua Email" required>
+                <textarea rows="5" placeholder="Il tuo Messaggio..." required></textarea>
+                <button type="submit" class="btn primary-btn">Invia Messaggio</button>
+            </form>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-artstation"></i> ArtStation</a>
+                <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 3D & VFX Portfolio. Realizzato con HTML, CSS e JavaScript.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

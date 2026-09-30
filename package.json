@@ -1,0 +1,12 @@
+{
+  "name": "3d-portfolio-website",
+  "version": "1.0.0",
+  "description": "Portfolio personale 3D & VFX Artist",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx live-server"
+  },
+  "keywords": ["3d", "vfx", "portfolio", "threejs", "model-viewer"],
+  "author": "",
+  "license": "ISC"
+}
