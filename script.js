@@ -62,41 +62,40 @@ document.addEventListener('DOMContentLoaded', () => {
             contactForm.reset();
         });
     }
-});// Gestione Selezione Cartelle 3D
+});
+// Gestione Apertura Cartelle e Multi-Viewer 3D (3D Project Vault)
 document.addEventListener('DOMContentLoaded', () => {
-    const mainViewer = document.getElementById('main-3d-viewer');
-    const folderCards = document.querySelectorAll('.folder-card');
-    const modelTitle = document.getElementById('model-title');
-    const modelFormat = document.getElementById('model-format');
+    const folderTabs = document.querySelectorAll('.folder-tab');
+    const projectContents = document.querySelectorAll('.project-vault-content');
 
-    folderCards.forEach(card => {
-        card.addEventListener('click', () => {
-            // Rimuovi lo stato attivo da tutte le cartelle
-            folderCards.forEach(c => {
-                c.classList.remove('active');
-                const icon = c.querySelector('.folder-icon i');
+    folderTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetProjectId = tab.getAttribute('data-project');
+
+            // 1. Reset stato di tutte le cartelle
+            folderTabs.forEach(t => {
+                t.classList.remove('active');
+                const icon = t.querySelector('.folder-icon i');
                 if (icon) icon.className = 'fas fa-folder';
-                const status = c.querySelector('.folder-status');
-                if (status) status.textContent = 'CARICA';
+                const badge = t.querySelector('.folder-badge');
+                if (badge) badge.textContent = 'SELEZIONA';
             });
 
-            // Attiva la cartella cliccata
-            card.classList.add('active');
-            const activeIcon = card.querySelector('.folder-icon i');
+            // 2. Attiva la cartella cliccata
+            tab.classList.add('active');
+            const activeIcon = tab.querySelector('.folder-icon i');
             if (activeIcon) activeIcon.className = 'fas fa-folder-open';
-            const activeStatus = card.querySelector('.folder-status');
-            if (activeStatus) activeStatus.textContent = 'ATTIVO';
+            const activeBadge = tab.querySelector('.folder-badge');
+            if (activeBadge) activeBadge.textContent = 'APERTO';
 
-            // Leggi gli attributi e aggiorna il model-viewer e l'overlay
-            const newModelSrc = card.getAttribute('data-model');
-            const newTitle = card.getAttribute('data-title');
-            const newFormat = card.getAttribute('data-format');
-
-            if (mainViewer && newModelSrc) {
-                mainViewer.setAttribute('src', newModelSrc);
-            }
-            if (modelTitle && newTitle) modelTitle.textContent = newTitle;
-            if (modelFormat && newFormat) modelFormat.textContent = newFormat;
+            // 3. Mostra solo il contenuto del progetto selezionato
+            projectContents.forEach(content => {
+                if (content.id === targetProjectId) {
+                    content.classList.add('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            });
         });
     });
 });
