@@ -90,8 +90,8 @@
                 aria-controls="project-astronaut" data-project="project-astronaut">
                 <div class="folder-icon"><i class="fas fa-folder-open" aria-hidden="true"></i></div>
                 <div class="folder-info">
-                    <h4>Cyber Astronaut</h4>
-                    <p>Character Set • 2 Asset 3D</p>
+                    <h4>Golem 3D FanArt</h4>
+                    <p>Character Set • 1 Asset 3D</p>
                 </div>
                 <div class="folder-badge">APERTO</div>
             </div>
@@ -100,8 +100,8 @@
                 data-project="project-scifi-props">
                 <div class="folder-icon"><i class="fas fa-folder" aria-hidden="true"></i></div>
                 <div class="folder-info">
-                    <h4>Sci-Fi Hardware</h4>
-                    <p>Prop Collection • 2 Asset 3D</p>
+                    <h4>Giru</h4>
+                    <p>Character Set • 1 Asset 3D</p>
                 </div>
                 <div class="folder-badge">SELEZIONA</div>
             </div>
@@ -111,43 +111,28 @@
         <!-- Progetto 1 (attivo di default) -->
         <div class="project-vault-content active" id="project-astronaut" role="tabpanel">
             <div class="vault-header">
-                <h3><i class="fas fa-layer-group" aria-hidden="true"></i> Progetto: Cyber Astronaut Set</h3>
+                <h3><i class="fas fa-layer-group" aria-hidden="true"></i> Progetto: Golem Diorama 3D FanArt</h3>
             </div>
             <div class="multi-viewer-grid">
 
                 <div class="viewer-card">
                     <div class="viewer-card-header">
                         <span>ASSET #01</span>
-                        <h4>Full Character Suit</h4>
+                        <h4>Golem Diorama</h4>
                     </div>
                     <!-- TODO: modello di esempio di modelviewer.dev. Sostituisci con assets/tuo_modello.glb -->
-                    <model-viewer src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
-                        alt="Modello 3D di una tuta da astronauta, ruotabile" auto-rotate camera-controls
+                    <model-viewer src="assets/3dModels/golem_export.glb"
+                        alt="Modello 3D di un Golem, ruotabile" auto-rotate camera-controls
                         shadow-intensity="1.5" loading="lazy">
                     </model-viewer>
                     <div class="viewer-card-footer">GLB / PBR Textures</div>
                 </div>
-
-                <div class="viewer-card">
-                    <div class="viewer-card-header">
-                        <span>ASSET #02</span>
-                        <h4>Helmet &amp; Scan Detail</h4>
-                    </div>
-                    <!-- TODO: modello di esempio di modelviewer.dev. Sostituisci con il tuo casco -->
-                    <model-viewer src="https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb"
-                        alt="Modello 3D di una tuta spaziale storica, ruotabile" auto-rotate camera-controls
-                        shadow-intensity="1.5" loading="lazy">
-                    </model-viewer>
-                    <div class="viewer-card-footer">GLB / High-Poly Scan</div>
-                </div>
-
             </div>
         </div>
-
         <!-- Progetto 2 (nascosto di default) -->
         <div class="project-vault-content" id="project-scifi-props" role="tabpanel">
             <div class="vault-header">
-                <h3><i class="fas fa-layer-group" aria-hidden="true"></i> Progetto: Sci-Fi Hardware Collection</h3>
+                <h3><i class="fas fa-layer-group" aria-hidden="true"></i> Progetto: Dragon-Ball GT Giru FanArt</h3>
             </div>
             <div class="multi-viewer-grid">
 
@@ -161,21 +146,8 @@
                         alt="Prop sci-fi 1, ruotabile" auto-rotate camera-controls loading="lazy">
                     </model-viewer>
                     <!-- FIX: il footer mostrava il percorso segnaposto "assets/tuo_file_1.glb" ai visitatori -->
-                    <div class="viewer-card-footer">GLB / Hard-Surface Prop</div>
+                    <div class="viewer-card-footer">GLB / PBR Textures</div>
                 </div>
-
-                <div class="viewer-card">
-                    <div class="viewer-card-header">
-                        <span>ASSET #02</span>
-                        <h4>Environment Container</h4>
-                    </div>
-                    <!-- TODO: segnaposto, sostituisci con assets/tuo_file_2.glb -->
-                    <model-viewer src="https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb"
-                        alt="Prop sci-fi 2, ruotabile" auto-rotate camera-controls loading="lazy">
-                    </model-viewer>
-                    <div class="viewer-card-footer">GLB / Environment Asset</div>
-                </div>
-
             </div>
         </div>
 
