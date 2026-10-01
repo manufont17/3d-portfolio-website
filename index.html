@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio di Emanuele Fontana, 3D Generalist e VFX Artist: modelli 3D, simulazioni e compositing.">
+    <meta name="description"
+        content="Portfolio di Emanuele Fontana, 3D Generalist e VFX Artist: modelli 3D, simulazioni e compositing.">
     <meta name="theme-color" content="#0a0a0f">
     <title>3D &amp; VFX Artist | Portfolio</title>
 
@@ -44,9 +45,10 @@
     <!-- HERO SECTION CON VIDEO DI SFONDO -->
     <!-- FIX: l'id era "home" ma il menu punta a #hero -->
     <section class="hero" id="hero">
-        <video autoplay loop muted playsinline preload="metadata" aria-hidden="true" class="hero-video">
-            <source src="assets/bg-video.mp4" type="video/mp4">
-            Il tuo browser non supporta il tag video.
+        <video autoplay loop muted playsinline aria-hidden="true" class="hero-video">
+            <source
+                src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-sky-in-a-sunset-26070-large.mp4"
+                type="video/mp4">
         </video>
 
         <!-- Filtro scuro per rendere il testo leggibile -->
@@ -71,11 +73,9 @@
         <p class="section-subtitle">Una raccolta dei miei lavori e animazioni principali</p>
         <div class="video-container">
             <iframe src="https://www.youtube.com/embed/6fbHZSksuvc?si=i7yc-OpyVxxljgNn"
-                title="Showreel di Emanuele Fontana"
-                loading="lazy"
+                title="Showreel di Emanuele Fontana" loading="lazy"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen></iframe>
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
     </section>
     <!-- FIX: qui mancava </section>. Tutte le sezioni successive finivano annidate dentro #showreel -->
@@ -98,8 +98,8 @@
                 <div class="folder-badge">APERTO</div>
             </div>
 
-            <div class="folder-tab" role="tab" tabindex="-1" aria-selected="false"
-                aria-controls="project-scifi-props" data-project="project-scifi-props">
+            <div class="folder-tab" role="tab" tabindex="-1" aria-selected="false" aria-controls="project-scifi-props"
+                data-project="project-scifi-props">
                 <div class="folder-icon"><i class="fas fa-folder" aria-hidden="true"></i></div>
                 <div class="folder-info">
                     <h4>Sci-Fi Hardware</h4>
@@ -123,13 +123,9 @@
                         <h4>Full Character Suit</h4>
                     </div>
                     <!-- TODO: modello di esempio di modelviewer.dev. Sostituisci con assets/tuo_modello.glb -->
-                    <model-viewer
-                        src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
-                        alt="Modello 3D di una tuta da astronauta, ruotabile"
-                        auto-rotate
-                        camera-controls
-                        shadow-intensity="1.5"
-                        loading="lazy">
+                    <model-viewer src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
+                        alt="Modello 3D di una tuta da astronauta, ruotabile" auto-rotate camera-controls
+                        shadow-intensity="1.5" loading="lazy">
                     </model-viewer>
                     <div class="viewer-card-footer">GLB / PBR Textures</div>
                 </div>
@@ -140,13 +136,9 @@
                         <h4>Helmet &amp; Scan Detail</h4>
                     </div>
                     <!-- TODO: modello di esempio di modelviewer.dev. Sostituisci con il tuo casco -->
-                    <model-viewer
-                        src="https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb"
-                        alt="Modello 3D di una tuta spaziale storica, ruotabile"
-                        auto-rotate
-                        camera-controls
-                        shadow-intensity="1.5"
-                        loading="lazy">
+                    <model-viewer src="https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb"
+                        alt="Modello 3D di una tuta spaziale storica, ruotabile" auto-rotate camera-controls
+                        shadow-intensity="1.5" loading="lazy">
                     </model-viewer>
                     <div class="viewer-card-footer">GLB / High-Poly Scan</div>
                 </div>
@@ -167,12 +159,8 @@
                         <h4>Weapon / Tool Prop</h4>
                     </div>
                     <!-- TODO: segnaposto, sostituisci con assets/tuo_file_1.glb -->
-                    <model-viewer
-                        src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
-                        alt="Prop sci-fi 1, ruotabile"
-                        auto-rotate
-                        camera-controls
-                        loading="lazy">
+                    <model-viewer src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
+                        alt="Prop sci-fi 1, ruotabile" auto-rotate camera-controls loading="lazy">
                     </model-viewer>
                     <!-- FIX: il footer mostrava il percorso segnaposto "assets/tuo_file_1.glb" ai visitatori -->
                     <div class="viewer-card-footer">GLB / Hard-Surface Prop</div>
@@ -184,12 +172,8 @@
                         <h4>Environment Container</h4>
                     </div>
                     <!-- TODO: segnaposto, sostituisci con assets/tuo_file_2.glb -->
-                    <model-viewer
-                        src="https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb"
-                        alt="Prop sci-fi 2, ruotabile"
-                        auto-rotate
-                        camera-controls
-                        loading="lazy">
+                    <model-viewer src="https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb"
+                        alt="Prop sci-fi 2, ruotabile" auto-rotate camera-controls loading="lazy">
                     </model-viewer>
                     <div class="viewer-card-footer">GLB / Environment Asset</div>
                 </div>
@@ -206,7 +190,8 @@
         <div class="filter-buttons">
             <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">Tutti</button>
             <button type="button" class="filter-btn" data-filter="3d" aria-pressed="false">3D Modeling</button>
-            <button type="button" class="filter-btn" data-filter="vfx" aria-pressed="false">VFX &amp; Compositing</button>
+            <button type="button" class="filter-btn" data-filter="vfx" aria-pressed="false">VFX &amp;
+                Compositing</button>
             <button type="button" class="filter-btn" data-filter="fx" aria-pressed="false">Simulation &amp; FX</button>
         </div>
 
@@ -287,9 +272,12 @@
         <div class="contact-container">
             <!-- FIX: aggiunti name (necessari per inviare i dati) e aria-label (solo placeholder non basta) -->
             <form id="contact-form" class="contact-form">
-                <input type="text" name="nome" placeholder="Il tuo Nome" aria-label="Il tuo nome" autocomplete="name" required>
-                <input type="email" name="email" placeholder="La tua Email" aria-label="La tua email" autocomplete="email" required>
-                <textarea name="messaggio" rows="5" placeholder="Il tuo Messaggio..." aria-label="Il tuo messaggio" required></textarea>
+                <input type="text" name="nome" placeholder="Il tuo Nome" aria-label="Il tuo nome" autocomplete="name"
+                    required>
+                <input type="email" name="email" placeholder="La tua Email" aria-label="La tua email"
+                    autocomplete="email" required>
+                <textarea name="messaggio" rows="5" placeholder="Il tuo Messaggio..." aria-label="Il tuo messaggio"
+                    required></textarea>
                 <button type="submit" class="btn primary-btn">Invia Messaggio</button>
                 <p id="form-status" role="status" aria-live="polite"></p>
             </form>
