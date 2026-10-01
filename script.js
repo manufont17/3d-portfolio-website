@@ -51,17 +51,26 @@ function initVault() {
         if (!viewer) return;
 
         const realSrc = viewer.dataset.src;
-        // Se ha già un src (è già stato caricato) o non ha data-src, esce
         if (viewer.src || !realSrc) return;
 
         fetch(realSrc)
             .then(response => {
                 if (!response.ok) throw new Error('File non trovato');
-                return response.blob();
+                return response.arrayBuffer(); // Scarica il file come dati binari puri
             })
-            .then(blob => {
+            .then(buffer => {
+                const KEY = 0x42;
+                const view = new Uint8Array(buffer);
+
+                // Decifriamo i byte in memoria RAM
+                for (let i = 0; i < view.length; i++) {
+                    view[i] ^= KEY;
+                }
+
+                // Trasformiamo i dati decifrati in un oggetto Blob 3D
+                const blob = new Blob([view], { type: 'model/gltf-binary' });
                 const blobUrl = URL.createObjectURL(blob);
-                viewer.src = blobUrl; // Imposta l'URL temporaneo blob:https://...
+                viewer.src = blobUrl;
             })
             .catch(err => console.error('Errore caricamento modello 3D:', err));
     }
@@ -120,8 +129,7 @@ function initVault() {
 // ------------------------------------------------------------
 // Form di contatto
 // ------------------------------------------------------------
-function initContactForm()
- {
+function initContactForm() {
     const form = document.getElementById('contact-form');
     if (!form) return;
 
