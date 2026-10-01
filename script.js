@@ -1,101 +1,134 @@
-// Filtro Categorie Galleria Portfolio
+// ============================================================
+// CONFIGURAZIONE
+// Per far arrivare davvero i messaggi alla tua email:
+// 1. crea un form gratuito su https://formspree.io
+// 2. incolla qui l'endpoint, es. 'https://formspree.io/f/abcdwxyz'
+// ============================================================
+const FORM_ENDPOINT = '';
+
 document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const portfolioCards = document.querySelectorAll('.portfolio-card');
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Rimuovi classe active da tutti i bottoni
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-
-            const filterValue = button.getAttribute('data-filter');
-
-            portfolioCards.forEach(card => {
-                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
-
-    // Gestore Invio Form di Contatto
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Grazie per avermi contattato! Ti risponderò al più presto.');
-            contactForm.reset();
-        });
-    }
-});// Filtro Categorie Galleria Portfolio
-document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const portfolioCards = document.querySelectorAll('.portfolio-card');
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Rimuovi classe active da tutti i bottoni
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-
-            const filterValue = button.getAttribute('data-filter');
-
-            portfolioCards.forEach(card => {
-                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
-
-    // Gestore Invio Form di Contatto
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Grazie per avermi contattato! Ti risponderò al più presto.');
-            contactForm.reset();
-        });
-    }
+    initPortfolioFilter();
+    initVault();
+    initContactForm();
 });
-// Gestione Apertura Cartelle e Multi-Viewer 3D (3D Project Vault)
-document.addEventListener('DOMContentLoaded', () => {
-    const folderTabs = document.querySelectorAll('.folder-tab');
+
+// ------------------------------------------------------------
+// Filtro categorie galleria portfolio
+// ------------------------------------------------------------
+function initPortfolioFilter() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-pressed', 'false');
+            });
+            button.classList.add('active');
+            button.setAttribute('aria-pressed', 'true');
+
+            const filterValue = button.dataset.filter;
+
+            portfolioCards.forEach(card => {
+                const visible = filterValue === 'all' || card.dataset.category === filterValue;
+                card.style.display = visible ? 'block' : 'none';
+            });
+        });
+    });
+}
+
+// ------------------------------------------------------------
+// 3D Project Vault: apertura cartelle (mouse + tastiera)
+// ------------------------------------------------------------
+function initVault() {
+    const folderTabs = Array.from(document.querySelectorAll('.folder-tab'));
     const projectContents = document.querySelectorAll('.project-vault-content');
 
-    folderTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const targetProjectId = tab.getAttribute('data-project');
+    function activate(tab) {
+        const targetId = tab.dataset.project;
 
-            // 1. Reset stato di tutte le cartelle
-            folderTabs.forEach(t => {
-                t.classList.remove('active');
-                const icon = t.querySelector('.folder-icon i');
-                if (icon) icon.className = 'fas fa-folder';
-                const badge = t.querySelector('.folder-badge');
-                if (badge) badge.textContent = 'SELEZIONA';
-            });
+        folderTabs.forEach(t => {
+            const isActive = t === tab;
+            t.classList.toggle('active', isActive);
+            t.setAttribute('aria-selected', String(isActive));
+            t.tabIndex = isActive ? 0 : -1;
 
-            // 2. Attiva la cartella cliccata
-            tab.classList.add('active');
-            const activeIcon = tab.querySelector('.folder-icon i');
-            if (activeIcon) activeIcon.className = 'fas fa-folder-open';
-            const activeBadge = tab.querySelector('.folder-badge');
-            if (activeBadge) activeBadge.textContent = 'APERTO';
+            const icon = t.querySelector('.folder-icon i');
+            if (icon) icon.className = isActive ? 'fas fa-folder-open' : 'fas fa-folder';
 
-            // 3. Mostra solo il contenuto del progetto selezionato
-            projectContents.forEach(content => {
-                if (content.id === targetProjectId) {
-                    content.classList.add('active');
-                } else {
-                    content.classList.remove('active');
-                }
-            });
+            const badge = t.querySelector('.folder-badge');
+            if (badge) badge.textContent = isActive ? 'APERTO' : 'SELEZIONA';
+        });
+
+        projectContents.forEach(content => {
+            content.classList.toggle('active', content.id === targetId);
+        });
+    }
+
+    folderTabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activate(tab));
+
+        tab.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                activate(tab);
+            } else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const step = e.key === 'ArrowRight' ? 1 : -1;
+                const next = folderTabs[(index + step + folderTabs.length) % folderTabs.length];
+                next.focus();
+                activate(next);
+            }
         });
     });
-});
+}
+
+// ------------------------------------------------------------
+// Form di contatto
+// ------------------------------------------------------------
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    const status = document.getElementById('form-status');
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    const setStatus = (message, isError = false) => {
+        if (!status) return;
+        status.textContent = message;
+        status.style.color = isError ? '#ff6b6b' : '#4cd98a';
+    };
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        if (!FORM_ENDPOINT) {
+            // Prima il messaggio onesto: senza endpoint non parte nulla.
+            console.warn('FORM_ENDPOINT non configurato in script.js: il messaggio non viene inviato.');
+            setStatus('Invio non ancora attivo. Contattami direttamente via email.', true);
+            return;
+        }
+
+        submitBtn.disabled = true;
+        setStatus('Invio in corso...');
+
+        try {
+            const response = await fetch(FORM_ENDPOINT, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { Accept: 'application/json' }
+            });
+
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+            setStatus('Grazie per avermi contattato! Ti risponderò al più presto.');
+            form.reset();
+        } catch (err) {
+            console.error('Errore invio form:', err);
+            setStatus('Qualcosa è andato storto. Riprova tra poco o scrivimi via email.', true);
+        } finally {
+            submitBtn.disabled = false;
+        }
+    });
+}
