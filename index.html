@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D & VFX Artist | Portfolio</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- FontAwesome per le icone -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Model Viewer di Google per la grafica 3D -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-    
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- Navbar Glassmorphism -->
@@ -40,7 +43,8 @@
                 <span class="status-dot"></span> Available for Freelance & Full-time
             </div>
             <h1>3D & VFX <span>ARTIST</span></h1>
-            <p>Specializzato in Modellazione 3D, Texturing, VFX Compositing e Simulazioni Dinamiche per Cinema e Real-Time Engines.</p>
+            <p>Specializzato in Modellazione 3D, Texturing, VFX Compositing e Simulazioni Dinamiche per Cinema e
+                Real-Time Engines.</p>
             <div class="hero-btns">
                 <a href="#showreel" class="btn primary-btn"><i class="fas fa-play"></i> Guarda lo Showreel</a>
                 <a href="#contact" class="btn secondary-btn">Contattami</a>
@@ -49,27 +53,19 @@
     </section>
 
     <!-- Showreel Section -->
-    <section id="showreel" class="section">
-        <h2 class="section-title">VFX & 3D <span>SHOWREEL</span></h2>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="VFX Showreel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+    <div class="video-container">
+    <iframe src="https://youtu.be/6fbHZSksuvc?si=-NDgz_kZ-c7B39Ne" title="3D & VFX Showreel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
     </section>
 
     <!-- 3D Interactive Viewer Section -->
     <section id="viewer-3d" class="section dark-bg">
         <h2 class="section-title">MODELLO 3D <span>INTERATTIVO</span></h2>
         <p class="section-subtitle">Ruota, mezza zoom ed esplora il modello direttamente nel browser.</p>
-        
+
         <div class="viewer-wrapper">
-            <model-viewer 
-                src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" 
-                alt="Modello 3D Interattivo" 
-                auto-rotate 
-                camera-controls 
-                shadow-intensity="1.5"
-                exposure="1"
-                loading="lazy">
+            <model-viewer src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" alt="Modello 3D Interattivo"
+                auto-rotate camera-controls shadow-intensity="1.5" exposure="1" loading="lazy">
             </model-viewer>
         </div>
     </section>
@@ -77,7 +73,7 @@
     <!-- Portfolio Gallery -->
     <section id="portfolio" class="section">
         <h2 class="section-title">GALLERIA <span>PROGETTI</span></h2>
-        
+
         <div class="filter-buttons">
             <button class="filter-btn active" data-filter="all">Tutti</button>
             <button class="filter-btn" data-filter="3d">3D Modeling</button>
@@ -162,7 +158,7 @@
                 <textarea rows="5" placeholder="Il tuo Messaggio..." required></textarea>
                 <button type="submit" class="btn primary-btn">Invia Messaggio</button>
             </form>
-            
+
             <div class="social-links">
                 <a href="#"><i class="fab fa-artstation"></i> ArtStation</a>
                 <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
@@ -178,4 +174,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
