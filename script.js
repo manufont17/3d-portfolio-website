@@ -45,6 +45,27 @@ function initVault() {
     const folderTabs = Array.from(document.querySelectorAll('.folder-tab'));
     const projectContents = document.querySelectorAll('.project-vault-content');
 
+    // Funzione per caricare il modello via Blob
+    function loadModelBlob(container) {
+        const viewer = container.querySelector('model-viewer');
+        if (!viewer) return;
+
+        const realSrc = viewer.dataset.src;
+        // Se ha già un src (è già stato caricato) o non ha data-src, esce
+        if (viewer.src || !realSrc) return;
+
+        fetch(realSrc)
+            .then(response => {
+                if (!response.ok) throw new Error('File non trovato');
+                return response.blob();
+            })
+            .then(blob => {
+                const blobUrl = URL.createObjectURL(blob);
+                viewer.src = blobUrl; // Imposta l'URL temporaneo blob:https://...
+            })
+            .catch(err => console.error('Errore caricamento modello 3D:', err));
+    }
+
     function activate(tab) {
         const targetId = tab.dataset.project;
 
@@ -62,8 +83,20 @@ function initVault() {
         });
 
         projectContents.forEach(content => {
-            content.classList.toggle('active', content.id === targetId);
+            const isTarget = content.id === targetId;
+            content.classList.toggle('active', isTarget);
+
+            // Quando la cartella si apre, carica il modello 3D in modo protetto
+            if (isTarget) {
+                loadModelBlob(content);
+            }
         });
+    }
+
+    // Carica il modello della cartella attiva all'avvio della pagina
+    const initialActiveContent = document.querySelector('.project-vault-content.active');
+    if (initialActiveContent) {
+        loadModelBlob(initialActiveContent);
     }
 
     folderTabs.forEach((tab, index) => {
