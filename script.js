@@ -87,7 +87,8 @@ function initVault() {
 // ------------------------------------------------------------
 // Form di contatto
 // ------------------------------------------------------------
-function initContactForm() {
+function initContactForm()
+ {
     const form = document.getElementById('contact-form');
     if (!form) return;
 
@@ -132,3 +133,13 @@ function initContactForm() {
         }
     });
 }
+document.addEventListener('DOMContentLoaded', () => {
+    const heroVideo = document.querySelector('.hero-video');
+    const videoSource = heroVideo ? heroVideo.querySelector('source') : null;
+
+    if (videoSource) {
+        // Appende il timestamp attuale all'URL del video
+        videoSource.src = `assets/bg-video.mp4?t=${Date.now()}`;
+        heroVideo.load(); // Ricarica la sorgente
+    }
+});
