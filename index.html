@@ -59,17 +59,75 @@
     </section>
 
     <!-- 3D Interactive Viewer Section -->
-    <section id="viewer-3d" class="section dark-bg">
-        <h2 class="section-title">MODELLO 3D <span>INTERATTIVO</span></h2>
-        <p class="section-subtitle">Ruota, mezza zoom ed esplora il modello direttamente nel browser.</p>
-
-        <div class="viewer-wrapper">
-            <model-viewer src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" alt="Modello 3D Interattivo"
-                auto-rotate camera-controls shadow-intensity="1.5" exposure="1" loading="lazy">
-            </model-viewer>
+    <!-- 3D Interactive Viewer Section -->
+<section id="viewer-3d" class="section dark-bg">
+    <h2 class="section-title">3D ASSET <span>EXPLORER</span></h2>
+    <p class="section-subtitle">Passa sopra e clicca sulle cartelle per caricare i diversi modelli 3D in tempo reale.</p>
+    
+    <!-- Visualizzatore Principale Focus -->
+    <div class="viewer-wrapper">
+        <model-viewer 
+            id="main-3d-viewer"
+            src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" 
+            alt="Modello 3D Interattivo" 
+            auto-rotate 
+            camera-controls 
+            shadow-intensity="1.5"
+            exposure="1"
+            loading="lazy">
+        </model-viewer>
+        
+        <!-- Overlay Dettagli Modello -->
+        <div class="viewer-overlay-info">
+            <h3 id="model-title">Astronaut Suit</h3>
+            <span id="model-format">GLB / PBR 4K</span>
         </div>
-    </section>
+    </div>
 
+    <!-- Griglia Cartelle Interattive -->
+    <div class="model-folder-grid">
+        
+        <!-- Cartella 1 -->
+        <div class="folder-card active" 
+             data-model="https://modelviewer.dev/shared-assets/models/Astronaut.glb" 
+             data-title="Astronaut Suit" 
+             data-format="GLB / PBR 4K">
+            <div class="folder-icon"><i class="fas fa-folder-open"></i></div>
+            <div class="folder-details">
+                <h4>Astronaut Suit</h4>
+                <p>Character & Suit PBR</p>
+            </div>
+            <div class="folder-status">ATTIVO</div>
+        </div>
+
+        <!-- Cartella 2 -->
+        <div class="folder-card" 
+             data-model="https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb" 
+             data-title="Historical Suit" 
+             data-format="GLB / Clean Mesh">
+            <div class="folder-icon"><i class="fas fa-folder"></i></div>
+            <div class="folder-details">
+                <h4>Historical Suit</h4>
+                <p>High-Detail Scan</p>
+            </div>
+            <div class="folder-status">CARICA</div>
+        </div>
+
+        <!-- Cartella 3 (Pronta per un tuo file locale in futuro) -->
+        <div class="folder-card" 
+             data-model="assets/mio_modello.glb" 
+             data-title="Sci-Fi Prop (Esempio)" 
+             data-format="GLB / Game-Ready">
+            <div class="folder-icon"><i class="fas fa-folder"></i></div>
+            <div class="folder-details">
+                <h4>Sci-Fi Prop</h4>
+                <p>Inserisci qui assets/tuo_file.glb</p>
+            </div>
+            <div class="folder-status">CARICA</div>
+        </div>
+
+    </div>
+</section>
     <!-- Portfolio Gallery -->
     <section id="portfolio" class="section">
         <h2 class="section-title">GALLERIA <span>PROGETTI</span></h2>
