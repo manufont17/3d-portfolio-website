@@ -4,7 +4,7 @@
 // 1. crea un form gratuito su https://formspree.io
 // 2. incolla qui l'endpoint, es. 'https://formspree.io/f/abcdwxyz'
 // ============================================================
-const FORM_ENDPOINT = '';
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/emanuelefontana123@gmail.com';
 
 document.addEventListener('DOMContentLoaded', () => {
     initPortfolioFilter();
